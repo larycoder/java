@@ -1,13 +1,13 @@
-package ict8.oop;
+package ict8.lab1;
 import java.lang.*;
 import java.util.Scanner;
 
-public class app {
+public class lab1Test{
 
-    static int sum(Integer[] arr){
-        int sum=0;
+    static double sum(Integer[] arr){
+        double sum=0;
         for(int i=0;i<arr.length;i++){
-            sum+=arr[i];
+            sum+=new Integer(arr[i].intValue()).doubleValue();
         }
         return sum;
     }
@@ -80,6 +80,13 @@ public class app {
             System.out.printf("A[%d]= ", i + 1);
             arr[i] = scan.nextInt();
         }
-        System.out.println("The average is: "+sum(arr)/n);
+        System.out.printf("The average is: %.2f\n",sum(arr)/n);
+        double avrObj=sum(arr)/n;
+        double Svar=0;
+        for(int i=0;i<n;i++){
+          Svar+=Math.pow((arr[i].doubleValue()-avrObj),2);
+        }
+        double var=Svar/(n-1);
+        System.out.printf("sample standard deviation is: %.2f\n",Math.sqrt(var));
     }
 }
